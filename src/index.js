@@ -4,38 +4,38 @@ import morgan from "morgan";
 let data = [
   {
     "id": 1,
-    "name": "nombre",
-    "lastname": "apellido",
-    "age": 0,
-    "country": "país",
+    "name": "López",
+    "lastname": "Gonzáles",
+    "age": 35,
+    "country": "Chile",
     "hobbies": [
-      "run",
-      "dance",
-      "sing"
+      "Books",
+      "Techno",
+      "Biker"
     ]
   },
   {
     "id": 2,
-    "name": "nombre",
-    "lastname": "apellido",
-    "age": 0,
-    "country": "país",
+    "name": "Perez",
+    "lastname": "Cabrera",
+    "age": 29,
+    "country": "España",
     "hobbies": [
-      "run",
-      "dance",
-      "sing"
+      "Travel",
+      "Dance",
+      "Sing"
     ]
   },
   {
     "id": 3,
-    "name": "nombre",
-    "lastname": "apellido",
-    "age": 0,
-    "country": "país",
+    "name": "Andy",
+    "lastname": "Ruz",
+    "age": 18,
+    "country": "Chile",
     "hobbies": [
-      "run",
-      "dance",
-      "sing"
+      "Programming",
+      "Street workout",
+      "Games"
     ]
   }
 ]
@@ -60,6 +60,12 @@ app.get('/people', (req, res) => {
   res.send(data)
 })
 
+app.get('/people/:id', (req, res) => {
+  const dataFound = data.find(person => person.id === parseInt(req.params.id))
+  if (!dataFound) return res.status(404).json({"message": "No se encontro el dato"})
+  res.send(dataFound)
+})
+
 app.post('/people', (req, res) => {
   const newData = {id: data.length + 1,...req.body}
   data.push(newData)
@@ -75,19 +81,21 @@ app.put('/people/:id', (req, res) => {
   data = data.map(person => person.id === parseInt(req.params.id) ? {...person, ...newData} : person)
 
   res.json({
-    message: "Person updated succesfully"
+    message: "Person updated successfully"
   })
 })
 
 app.delete('/people/:id', (req, res) => {
   const dataFound = data.find(person => person.id === parseInt(req.params.id))
+
   if (!dataFound) return res.status(404).json({"message": "No se encontro el dato"})
+
   data = data.filter(person => person.id !== parseInt(req.params.id))
+
   res.json({
-    message: "data delete"
+    message: "Person delete successfully"
   })
 })
-
 
 app.listen(7000, () => {
   console.log(`Server ${app.get('nameServer')} ready on port ${app.get('port')}`)
