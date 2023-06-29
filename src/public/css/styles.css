@@ -1,0 +1,119 @@
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+::before ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --primary-color: #222;
+  --secundary-color: #00beef;
+  --black-color: #000;
+  --white-color: #f8f8f8;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--white-color);
+  color: var(--secundary-color);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main__title {
+  margin: 10rem auto;
+  font-size: 2.4rem;
+  color: var(--black-color);
+}
+.main__content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  padding: 0 2.5rem;
+  margin-bottom: 3rem;
+}
+.main__profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.main__id {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secundary-color);
+  color: var(--black-color);
+  font-size: 2rem;
+}
+.main__name {
+  font-size: 1.6rem;
+}
+.main__info {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 2.4rem 0;
+  font-size: 1.6rem;
+}
+.main__hobbies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin-bottom: 4.5rem;
+  background-color: var(--secundary-color);
+  border-radius: 2rem;
+}
+.main__hobbie {
+  padding: 0 0.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--black-color);
+  list-style: none;
+  text-align: center;
+}
+.main__button {
+  padding: 1rem 2rem;
+  margin-bottom: 1.6rem;
+  border-radius: 20px;
+  border: 1px solid var(--secundary-color);
+  background-color: transparent;
+  color: var(--white-color);
+  font-size: 1.6rem;
+  transition-duration: 300ms;
+  transition-property: border-color, background;
+  cursor: pointer;
+}
+.main__button:hover {
+  background-color: var(--secundary-color);
+  border-color: transparent;
+  transition: 400ms all;
+}
+
+/*# sourceMappingURL=styles.css.map */

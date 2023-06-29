@@ -42,13 +42,14 @@ let data = [
 ]
 
 router.all("/", (req, res) => {
-  res.json({
-    "message": "Hello World"
+  res.render('index', {
+    title: 'Documento EJS ~ CRUD',
+    data
   })
 });
 
 router.get('/people', (req, res) => {
-  res.send(data)
+  res.json(data)
 })
 
 router.get('/people/:id', (req, res) => {

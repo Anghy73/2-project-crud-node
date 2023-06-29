@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title%>
+  </title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="main__title">Profiles</h1>
+    <div class="main__content">
+      <% for(let i=0; i < data.length; i++) { %>
+        <div class="main__profile">
+          <span class="main__id">
+            <%= data[i].id %>
+          </span>
+          <p class="main__name">
+            <%= data[i].name %>
+              <%= data[i].lastname %>
+          </p>
+          <div class="main__info">
+            <span class="main__age">
+              <%= data[i].age %>
+            </span>
+            <span class="main__country">
+              <%= data[i].country %>
+            </span>
+          </div>
+          <ul class="main__hobbies">
+            <% for(let j=0; j < data[i].hobbies.length; j++ ) { %>
+              <li class="main__hobbie">
+                <%= data[i].hobbies[j] %>
+              </li>
+              <% } %>
+          </ul>
+          <button class="main__button">!Select me!</button>
+        </div>
+        <% } %>
+    </div>
+  </main>
+</body>
+
+</html>
